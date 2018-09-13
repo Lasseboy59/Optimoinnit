@@ -43,7 +43,7 @@ public class Solution_1c {
         list.add(100000000);
 //        list.add(10000000);
         for (int i = 0; i < n; i++) {
-            int number = random.nextInt(11);
+            int number = random.nextInt(100000);
             list.add(number);
         }
 
