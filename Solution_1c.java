@@ -53,8 +53,9 @@ public class Solution_1c {
     }
 
     private static List readFile() throws FileNotFoundException, IOException {
+        System.out.println("Luetaan tiedosto");
         // Create a BufferedReader from a FileReader.
-        BufferedReader reader = new BufferedReader(new FileReader("C:\\temp\\test.txt"));
+        BufferedReader reader = new BufferedReader(new FileReader("C:\\temp\\text_in.txt"));
         ArrayList<Integer> list = new ArrayList<Integer>();
 
         // Loop over lines in the file and print them.
@@ -68,13 +69,13 @@ public class Solution_1c {
             list.add(number);
 
         }
-        for (Integer num : list) {
-            System.out.println(" <- " + num);
-        }
+//        for (Integer num : list) {
+//            System.out.println(" <- " + num);
+//        }
         System.out.println("----");
-        if(list.contains(69816)){
+        if (list.contains(69816)) {
             System.out.println("Löytyi!");
-        }else {
+        } else {
             System.out.println("Ei löytynyt");
         }
         // Close the BufferedReader.
@@ -87,16 +88,21 @@ public class Solution_1c {
         List<Integer> arr = new ArrayList<>();
 
 //        arr = generateRandomArray(100000000);
-        arr = readFile();
-        
-        
+        long timeLapseBegin = System.nanoTime();
 
-        long tm2 = System.nanoTime();
+        arr = readFile();
+
+        timeLapseBegin = System.nanoTime() - timeLapseBegin;
+        System.out.println("secs: " + (double) timeLapseBegin / 1000000000);
+        System.out.println("-------- LUKU -------");
+
+        long timeLapse = System.nanoTime();
 
         String ret = findNumber(arr, 5310);
 
-        tm2 = System.nanoTime() - tm2;
-        System.out.println("secs: " + (double) tm2 / 1000000000);
+        System.out.println("-------- HAKU -------");
+        timeLapse = System.nanoTime() - timeLapse;
+        System.out.println("secs: " + (double) timeLapse / 1000000000);
         System.out.println("");
 
         System.out.println("-> " + ret);
