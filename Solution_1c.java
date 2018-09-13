@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Random;
 import static omatohjelmat.RandomNumberList.generateRandomArray;
 
-public class Solution_1b {
+public class Solution_1c {
 
     static String findNumber(List<Integer> arr, int k) {
 
@@ -68,9 +68,9 @@ public class Solution_1b {
             list.add(number);
 
         }
-//        for (Integer num : list) {
-//            System.out.println(" <- " + num);
-//        }
+        for (Integer num : list) {
+            System.out.println(" <- " + num);
+        }
         System.out.println("----");
         if(list.contains(69816)){
             System.out.println("Löytyi!");
@@ -91,12 +91,12 @@ public class Solution_1b {
         
         
 
-        long timeLapse = System.nanoTime();
+        long tm2 = System.nanoTime();
 
         String ret = findNumber(arr, 5310);
 
-        timeLapse = System.nanoTime() - timeLapse;
-        System.out.println("secs: " + (double) timeLapse / 1000000000);
+        tm2 = System.nanoTime() - tm2;
+        System.out.println("secs: " + (double) tm2 / 1000000000);
         System.out.println("");
 
         System.out.println("-> " + ret);

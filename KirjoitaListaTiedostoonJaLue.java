@@ -24,37 +24,6 @@ public class KirjoitaListaTiedostoonJaLue {
         return list;
     }
 
-    public static void main(String[] args) throws FileNotFoundException, IOException {
-
-        writeToFile();
-
-        readFile();
-    }
-
-    private static void readFile() throws FileNotFoundException, IOException {
-        // Create a BufferedReader from a FileReader.
-        BufferedReader reader = new BufferedReader(new FileReader("C:\\temp\\test.txt"));
-        ArrayList<Integer> list = new ArrayList<Integer>();
-
-        // Loop over lines in the file and print them.
-        while (true) {
-            String line = reader.readLine();
-            if (line == null) {
-                break;
-            }
-//            System.out.println(line);
-            int number = Integer.parseInt(line);
-            list.add(number);
-            
-            for (Integer num : list) {
-                System.out.println("-> " + num);
-            }
-        }
-
-        // Close the BufferedReader.
-        reader.close();
-    }
-
     private static void writeToFile() {
         final String FNAME = "c:\\temp\\test.txt";
         List<Integer> arr = new ArrayList<>();
@@ -74,4 +43,41 @@ public class KirjoitaListaTiedostoonJaLue {
         }
     }
 
+    private static void readFile() throws FileNotFoundException, IOException {
+        // Create a BufferedReader from a FileReader.
+        BufferedReader reader = new BufferedReader(new FileReader("C:\\temp\\test.txt"));
+        ArrayList<Integer> list = new ArrayList<Integer>();
+
+        // Loop over lines in the file and print them.
+        while (true) {
+            String line = reader.readLine();
+            if (line == null) {
+                break;
+            }
+//            System.out.println(line);
+            int number = Integer.parseInt(line);
+            list.add(number);
+
+        }
+//        for (Integer num : list) {
+//            System.out.println(" <- " + num);
+//        }
+       
+        System.out.println("size: " +  list.size());
+        System.out.println("----");
+        if(list.contains(81716)){
+            System.out.println("Löytyi!");
+        }else {
+            System.out.println("Ei löytynyt");
+        }
+        // Close the BufferedReader.
+        reader.close();
+    }
+
+    public static void main(String[] args) throws FileNotFoundException, IOException {
+
+//       writeToFile();
+
+        readFile();
+    }
 }
