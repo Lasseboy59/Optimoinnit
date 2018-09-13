@@ -1,10 +1,10 @@
-
-
 package omatohjelmat;
 
 // https://www.quora.com/How-do-I-store-an-arraylist-to-a-text-file-in-Java
-
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -17,24 +17,49 @@ public class KirjoitaListaTiedostoon {
         ArrayList<Integer> list = new ArrayList<Integer>(n);
         Random random = new Random();
 
-//                123456789
-        list.add(100000000);
         for (int i = 0; i < n; i++) {
-            int number = random.nextInt(11);
+            int number = random.nextInt(100000);
             list.add(number);
         }
-
-        list.add(5);
-
         return list;
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException, IOException {
+
+        writeToFile();
+
+        readFile();
+    }
+
+    private static void readFile() throws FileNotFoundException, IOException {
+        // Create a BufferedReader from a FileReader.
+        BufferedReader reader = new BufferedReader(new FileReader("C:\\temp\\test.txt"));
+        ArrayList<Integer> list = new ArrayList<Integer>();
+
+        // Loop over lines in the file and print them.
+        while (true) {
+            String line = reader.readLine();
+            if (line == null) {
+                break;
+            }
+//            System.out.println(line);
+            int number = Integer.parseInt(line);
+            list.add(number);
+            
+            for (Integer num : list) {
+                System.out.println("-> " + num);
+            }
+        }
+
+        // Close the BufferedReader.
+        reader.close();
+    }
+
+    private static void writeToFile() {
         final String FNAME = "c:\\temp\\test.txt";
         List<Integer> arr = new ArrayList<>();
-
-
-        arr = generateRandomArray(1000);
+//                                123456789
+        arr = generateRandomArray(10000000);
 
         try (BufferedWriter bw
                 = new BufferedWriter(new FileWriter(FNAME))) {

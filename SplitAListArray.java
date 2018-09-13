@@ -10,10 +10,8 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-/**
- *
- * @author lauri
- */
+// https://stackoverflow.com/questions/2895342/java-how-can-i-split-an-arraylist-in-multiple-small-arraylists
+// https://www.quora.com/What-is-the-best-way-to-split-an-array-list-in-Java
 public class SplitAListArray {
 
     public static void main(String[] args) {
