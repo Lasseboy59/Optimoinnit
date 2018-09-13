@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class KirjoitaListaTiedostoon {
+public class KirjoitaListaTiedostoonJaLue {
 
     static List<Integer> generateRandomArray(int n) {
         ArrayList<Integer> list = new ArrayList<Integer>(n);
