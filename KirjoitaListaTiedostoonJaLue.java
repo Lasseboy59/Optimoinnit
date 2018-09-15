@@ -14,6 +14,7 @@ import java.util.Random;
 public class KirjoitaListaTiedostoonJaLue {
 
     static List<Integer> generateRandomArray(int n) {
+        System.out.println("creating a random list with size of: " + n / (1000000));
         ArrayList<Integer> list = new ArrayList<Integer>(n);
         Random random = new Random();
 
@@ -21,14 +22,15 @@ public class KirjoitaListaTiedostoonJaLue {
             int number = random.nextInt(100000);
             list.add(number);
         }
+
         return list;
     }
 
     private static void writeToFile() {
-        final String FNAME = "c:\\temp\\test.txt";
+        final String FNAME = "c:\\temp\\test2.txt";
         List<Integer> arr = new ArrayList<>();
-//                                123456789
-        arr = generateRandomArray(10000000);
+//                                 123456789
+        arr = generateRandomArray(100000000);
 
         try (BufferedWriter bw
                 = new BufferedWriter(new FileWriter(FNAME))) {
@@ -62,12 +64,12 @@ public class KirjoitaListaTiedostoonJaLue {
 //        for (Integer num : list) {
 //            System.out.println(" <- " + num);
 //        }
-       
-        System.out.println("size: " +  list.size());
+
+        System.out.println("size: " + list.size());
         System.out.println("----");
-        if(list.contains(81716)){
+        if (list.contains(81716)) {
             System.out.println("Löytyi!");
-        }else {
+        } else {
             System.out.println("Ei löytynyt");
         }
         // Close the BufferedReader.
@@ -77,7 +79,14 @@ public class KirjoitaListaTiedostoonJaLue {
     public static void main(String[] args) throws FileNotFoundException, IOException {
 
 //       writeToFile();
+//        readFile();
+        long timeLapseBegin = System.nanoTime();
+//                           123456789
+        generateRandomArray(10000000);
 
-        readFile();
+        timeLapseBegin = System.nanoTime() - timeLapseBegin;
+        System.out.println("secs: " + (double) timeLapseBegin / 1000000000);
+        System.out.println("-------- LUKU -------");
+
     }
 }
