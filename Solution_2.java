@@ -6,15 +6,31 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
+import java.util.Scanner;
 
 public class Solution_2 {
 
     // Complete the oddNumbers function below.
     static List<Integer> oddNumbers(List<Integer> arr, int l, int r) {
+        Scanner lukija = new Scanner(System.in);
+        ArrayList<Integer> list = new ArrayList<Integer>();
 
-        Collections.sort(arr);
+        int x = 0;
+        System.out.print("Anna kokonaislukuja: ");
 
-        for (Integer number : arr) {
+        while (true) {
+            try {
+                x = lukija.nextInt();
+                list.add(x);
+            } catch (Exception e) {
+                System.out.println("Virheellinen syöte");
+                break;
+            }
+        }
+
+        Collections.sort(list);
+
+        for (Integer number : list) {
             System.out.println(number);
         }
 
@@ -43,14 +59,11 @@ public class Solution_2 {
 //        Listan pituus
         arr = generateRandomArray(10);
 
-        System.out.println("listan koko: " + arr.size());
+//        System.out.println("listan koko: " + arr.size());
 
         arr = oddNumbers(arr, 2, 5);
 
-        System.out.println("-------------");
-        for (Integer luku : arr) {
-            System.out.println(luku);
-        }
+
     }
 
 }
