@@ -27,10 +27,10 @@ public class KirjoitaListaTiedostoonJaLue {
     }
 
     private static void writeToFile() {
-        final String FNAME = "c:\\temp\\test2.txt";
+        final String FNAME = "c:\\temp\\text_in.txt";
         List<Integer> arr = new ArrayList<>();
 //                                 123456789
-        arr = generateRandomArray(100000000);
+        arr = generateRandomArray(1000);
 
         try (BufferedWriter bw
                 = new BufferedWriter(new FileWriter(FNAME))) {
@@ -47,7 +47,7 @@ public class KirjoitaListaTiedostoonJaLue {
 
     private static void readFile() throws FileNotFoundException, IOException {
         // Create a BufferedReader from a FileReader.
-        BufferedReader reader = new BufferedReader(new FileReader("C:\\temp\\test.txt"));
+        BufferedReader reader = new BufferedReader(new FileReader("C:\\temp\\text_in_small.txt"));
         ArrayList<Integer> list = new ArrayList<Integer>();
 
         // Loop over lines in the file and print them.
@@ -78,8 +78,8 @@ public class KirjoitaListaTiedostoonJaLue {
 
     public static void main(String[] args) throws FileNotFoundException, IOException {
 
-//       writeToFile();
-//        readFile();
+        writeToFile();
+        readFile();
         long timeLapseBegin = System.nanoTime();
 //                           123456789
         generateRandomArray(10000000);

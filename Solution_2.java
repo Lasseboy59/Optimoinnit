@@ -40,18 +40,17 @@ public class Solution_2 {
 
         List<Integer> arr = new ArrayList<>();
 
-        long timeLapseBegin = System.nanoTime();
-        System.out.println("-------- Jump to oddNumbers() -------");
+//        long timeLapseBegin = System.nanoTime();
+//        System.out.println("-------- Jump to oddNumbers() -------");
 
-        arr = oddNumbers(2, 100000);
+        arr = oddNumbers(3, 9);
 
-        timeLapseBegin = System.nanoTime() - timeLapseBegin;
-        System.out.println("secs: " + (double) timeLapseBegin / 1000000000);
-        System.out.println("-------- BACK -------");
+//        timeLapseBegin = System.nanoTime() - timeLapseBegin;
+//        System.out.println("secs: " + (double) timeLapseBegin / 1000000000);
+//        System.out.println("-------- BACK -------");
 
-        int sizeOfArray = arr.size();
-        System.out.println("first one " + arr.get(0));
-        System.out.println("last one " + (arr.get(sizeOfArray - 1)));
+//        System.out.println("first one " + arr.get(0));
+//        System.out.println("last one " + (arr.get(arr.size() - 1)));
 
     }
 
