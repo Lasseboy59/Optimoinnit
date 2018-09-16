@@ -1,8 +1,6 @@
 package omatohjelmat;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
@@ -11,58 +9,49 @@ import java.util.Scanner;
 public class Solution_2 {
 
     // Complete the oddNumbers function below.
-    static List<Integer> oddNumbers(List<Integer> arr, int l, int r) {
-        Scanner lukija = new Scanner(System.in);
-        ArrayList<Integer> list = new ArrayList<Integer>();
+    static List<Integer> oddNumbers(int l, int r) {
 
-        int x = 0;
-        System.out.print("Anna kokonaislukuja: ");
+        int leftBorder = 0, rightBorder = 0;
 
-        while (true) {
-            try {
-                x = lukija.nextInt();
-                list.add(x);
-            } catch (Exception e) {
-                System.out.println("Virheellinen syöte");
-                break;
-            }
+        if (l % 2 == 1) {
+            leftBorder = l;
+        } else {
+            leftBorder = l + 1;
         }
 
-        Collections.sort(list);
-
-        for (Integer number : list) {
-            System.out.println(number);
+        if (r % 2 == 1) {
+            rightBorder = r;
+        } else {
+            rightBorder = r - 1;
         }
 
-        return arr;
-    }
+        int initialSize = ((rightBorder - leftBorder) / 2) + 1;
+        ArrayList<Integer> numbers = new ArrayList<Integer>(initialSize);
+        int toBeadded = leftBorder;
 
-    static List<Integer> generateRandomArray(int n) {
-        ArrayList<Integer> list = new ArrayList<Integer>(n);
-        Random random = new Random();
-
-//        for (int i = 0; i < n; i++) {
-//            
-//            int number = random.nextInt(10)+1;
-//            list.add(number);
-//        }
-        list.add(5);
-        list.add(2);
-
-        return list;
+        for (int i = 0; i < initialSize; i++) {
+            numbers.add(toBeadded);
+            toBeadded += 2;
+        }
+        return numbers;
     }
 
     public static void main(String[] args) {
 
         List<Integer> arr = new ArrayList<>();
 
-//        Listan pituus
-        arr = generateRandomArray(10);
+        long timeLapseBegin = System.nanoTime();
+        System.out.println("-------- Jump to oddNumbers() -------");
 
-//        System.out.println("listan koko: " + arr.size());
+        arr = oddNumbers(2, 100000);
 
-        arr = oddNumbers(arr, 2, 5);
+        timeLapseBegin = System.nanoTime() - timeLapseBegin;
+        System.out.println("secs: " + (double) timeLapseBegin / 1000000000);
+        System.out.println("-------- BACK -------");
 
+        int sizeOfArray = arr.size();
+        System.out.println("first one " + arr.get(0));
+        System.out.println("last one " + (arr.get(sizeOfArray - 1)));
 
     }
 
