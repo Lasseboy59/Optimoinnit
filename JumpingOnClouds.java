@@ -16,26 +16,39 @@ public class JumpingOnClouds {
 //        System.out.println("arrayn pituus: " + c.length);
 //        System.out.println("-------------------------");
 //        for (int i = 0; i < c.length; i++) {
-//            System.out.println(i + " " + c[i]);
+//            System.out.print(i + "^" + c[i] + " - ");
 //        }
-//        System.out.println("-------------------------");
+//        System.out.println("\n-------------------------");
+
         int jump = 0;
-        for (int i = 0; i < c.length-1; i++) {
-            if (c[i] < 1) {
-                System.out.println(i + "  " + 0);
-                if ((c[i + 1] < 1) && (i < c.length)) {
-                    System.out.println("You can jump");
+        for (int i = 0; i < c.length - 1; i++) {
+//            System.out.println("i= " + i);
+            if (c[i] == 0) {
+                
+                if((c[i + 1] == 0) && ((i+1) == c.length -1  )) {
                     jump++;
-                } else if((c[i + 1] > 0) && (i < c.length)) {
-                    System.out.println("You must jump");
-                    jump++;
+                    break;
                 }
-            } else {
-                System.out.println(i + "     " + 1);
+                else if ((c[i + 2] == 0) && (i < c.length)) {
+//                    System.out.println("DECISION when i = " + i + " A");
+//                    System.out.println("[" + i + "] = " + c[i] + " && [" + (i + 2) + "] = " + c[i + 2]);
+
+//                    System.out.println("From [" + i + "] jump from to c[" + (i + 2) + "]");
+                    jump++;
+                    i++;
+
+                } else {
+//                    System.out.println("DECISION when i = " + i + " B");
+//                    System.out.println("You must jump");
+                    jump++;
+
+                }
+            } else if(i < c.length){
+//                System.out.println(i + "     " + 1);
 //                jump++;
             }
         }
-        System.out.println("jump " + jump);
+//        System.out.println("jump " + jump);
         return jump;
     }
 
@@ -61,19 +74,6 @@ public class JumpingOnClouds {
     public static void main(String[] args) throws IOException {
         final String FNAME = "c:\\temp\\clouds.log";
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(FNAME));
-
-//        int n = scanner.nextInt();
-//        scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
-//
-//        int[] c = new int[n];
-//
-//        String[] cItems = scanner.nextLine().split(" ");
-//        scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
-//
-//        for (int i = 0; i < n; i++) {
-//            int cItem = Integer.parseInt(cItems[i]);
-//            c[i] = cItem;
-//        }
         int count = 6;
         int[] d = new int[count];
 
