@@ -13,13 +13,6 @@ public class JumpingOnClouds {
     // Complete the jumpingOnClouds function below.
     static int jumpingOnClouds(int[] c) {
 
-//        System.out.println("arrayn pituus: " + c.length);
-//        System.out.println("-------------------------");
-//        for (int i = 0; i < c.length; i++) {
-//            System.out.print(i + "^" + c[i] + " - ");
-//        }
-//        System.out.println("\n-------------------------");
-
         int jump = 0;
         for (int i = 0; i < c.length - 1; i++) {
 //            System.out.println("i= " + i);
@@ -43,12 +36,8 @@ public class JumpingOnClouds {
                     jump++;
 
                 }
-            } else if(i < c.length){
-//                System.out.println(i + "     " + 1);
-//                jump++;
-            }
+            } 
         }
-//        System.out.println("jump " + jump);
         return jump;
     }
 
@@ -74,18 +63,21 @@ public class JumpingOnClouds {
     public static void main(String[] args) throws IOException {
         final String FNAME = "c:\\temp\\clouds.log";
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(FNAME));
-        int count = 6;
-        int[] d = new int[count];
 
-        int[] e = new int[count];
-        int[] myIntArray = new int[]{1, 2, 3};
+        int n = scanner.nextInt();
+        scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
 
-//        d = generateRandomArray(count);
-        int[] f1 = {0, 0, 0, 0, 1, 0};
-        int[] f2 = {0, 0, 0, 1, 0, 0};
-        int[] g = {0, 0, 1, 0, 0, 1, 0};
-        int result = jumpingOnClouds(f2);
-        System.out.println("Pituus (main) " + result);
+        int[] c = new int[n];
+
+        String[] cItems = scanner.nextLine().split(" ");
+        scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
+
+        for (int i = 0; i < n; i++) {
+            int cItem = Integer.parseInt(cItems[i]);
+            c[i] = cItem;
+        }
+
+        int result = jumpingOnClouds(c);
 
         bufferedWriter.write(String.valueOf(result));
         bufferedWriter.newLine();
