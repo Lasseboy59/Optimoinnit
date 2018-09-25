@@ -17,13 +17,14 @@ public class H_HourglassSum {
         List<Integer> myList = new ArrayList<Integer>();
 
         for (int rivi = 0; rivi < arr.length; rivi++) {
+            sumOfGlass = 0;
             for (int sarake = 0; sarake < arr.length; sarake++, counter++) {
+                sumOfGlass = 0;
                 System.out.println("ruutu: " + (counter + 1));
 
                 for (i = rivi; i < 3 + rivi && i < arr.length; i++) {
                     for (j = sarake; j < 3 + sarake && j < arr.length; j++) {
                         System.out.print(arr[i][j] + " ");
-//                        sumOfGlass += arr[i][i];
                         int num = arr[i][j];
                         myList.add(num);
                     }
@@ -31,13 +32,36 @@ public class H_HourglassSum {
                 }
 
                 if (sarake == 3) {
+
+                    System.out.println("-------------");
+                    System.out.println("array: " + myList);
+                    for (Integer num : myList) {
+                        System.out.print(num + " + ");
+                    }
+                    System.out.println("");
+
+                    for (Integer num : myList) {
+                        sumOfGlass += num;
+                    }
+                    System.out.println("ind(3) + ind(5): " + myList.get(3) + " + " + myList.get(5) + " = " + (myList.get(3) + myList.get(5)));
+                    System.out.println("sum: " + sumOfGlass + " - " + ((myList.get(3) + myList.get(5))));
+                    sumOfGlass = sumOfGlass - (myList.get(3) + myList.get(5));
+                    System.out.println("sum: " + sumOfGlass);
+                    if (sumOfGlass > biggestsumOfGlass) {
+                        biggestsumOfGlass = sumOfGlass;
+                        sumOfGlass = 0;
+                    }
+                    myList.clear();
+
                     counter++;
+                    System.out.println("sarake == 3 -- break");
                     sumOfGlass = 0;
                     break;
                 }
+
                 System.out.println("-------------");
                 System.out.println("array: " + myList);
-                for(Integer num : myList) {
+                for (Integer num : myList) {
                     System.out.print(num + " + ");
                 }
                 System.out.println("");
@@ -53,19 +77,22 @@ public class H_HourglassSum {
                     biggestsumOfGlass = sumOfGlass;
                     sumOfGlass = 0;
                 }
+                sumOfGlass = 0;
                 myList.clear();
             }
             System.out.println("-------------");
             myList.clear();
 
             if (rivi == 3) {
+
                 counter++;
+                System.out.println("rivi == 3 -- break");
                 sumOfGlass = 0;
                 break;
             }
         }
 
-        return 5;
+        return biggestsumOfGlass;
     }
 
     private static final Scanner scanner = new Scanner(System.in);
