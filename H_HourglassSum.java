@@ -1,4 +1,3 @@
-
 package hackertest;
 
 import java.io.*;
@@ -12,24 +11,57 @@ public class H_HourglassSum {
         printThe2Array(arr);
 
         System.out.println("");
-        int i = 0, j = 0;
+        int i = 0, j = 0, counter = 0;
+        int sumOfGlass = 0;
+        int biggestsumOfGlass = 0;
+        List<Integer> myList = new ArrayList<Integer>();
 
         for (int rivi = 0; rivi < arr.length; rivi++) {
-            for (int sarake = 0; sarake < arr.length; sarake++) {
-                System.out.println("sarake: " + (sarake + 1));
+            for (int sarake = 0; sarake < arr.length; sarake++, counter++) {
+                System.out.println("ruutu: " + (counter + 1));
 
-                for (i = 0; i < 3 && i < arr.length; i++) {
+                for (i = rivi; i < 3 + rivi && i < arr.length; i++) {
                     for (j = sarake; j < 3 + sarake && j < arr.length; j++) {
                         System.out.print(arr[i][j] + " ");
+//                        sumOfGlass += arr[i][i];
+                        int num = arr[i][j];
+                        myList.add(num);
                     }
-                    System.out.println("");
+                    System.out.println(""); // Let this be here!!
                 }
-
-                System.out.println("");
 
                 if (sarake == 3) {
+                    counter++;
+                    sumOfGlass = 0;
                     break;
                 }
+                System.out.println("-------------");
+                System.out.println("array: " + myList);
+                for(Integer num : myList) {
+                    System.out.print(num + " + ");
+                }
+                System.out.println("");
+
+                for (Integer num : myList) {
+                    sumOfGlass += num;
+                }
+                System.out.println("ind(3) + ind(5): " + myList.get(3) + " + " + myList.get(5) + " = " + (myList.get(3) + myList.get(5)));
+                System.out.println("sum: " + sumOfGlass + " - " + ((myList.get(3) + myList.get(5))));
+                sumOfGlass = sumOfGlass - (myList.get(3) + myList.get(5));
+                System.out.println("sum: " + sumOfGlass);
+                if (sumOfGlass > biggestsumOfGlass) {
+                    biggestsumOfGlass = sumOfGlass;
+                    sumOfGlass = 0;
+                }
+                myList.clear();
+            }
+            System.out.println("-------------");
+            myList.clear();
+
+            if (rivi == 3) {
+                counter++;
+                sumOfGlass = 0;
+                break;
             }
         }
 
