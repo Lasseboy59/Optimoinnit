@@ -8,7 +8,7 @@ import java.util.*;
 import java.util.concurrent.*;
 import java.util.regex.*;
 
-public class RepeatedString {
+public class H_RepeatedString {
 
     // Complete the repeatedString function below.
     static long repeatedString(String s, long n) {

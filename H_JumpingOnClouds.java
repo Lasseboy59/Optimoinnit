@@ -8,7 +8,7 @@ import java.util.*;
 import java.util.concurrent.*;
 import java.util.regex.*;
 
-public class JumpingOnClouds {
+public class H_JumpingOnClouds {
 
     // Complete the jumpingOnClouds function below.
     static int jumpingOnClouds(int[] c) {
