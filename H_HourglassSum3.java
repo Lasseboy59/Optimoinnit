@@ -14,7 +14,7 @@ public class H_HourglassSum3 {
     static int hourglassSum(int[][] arr) {
 
 //        printThe2Array(arr);
-        System.out.println("");
+//        System.out.println("");
         int i = 0, j = 0, counter = 0;
         int sumOfGlass = -100;
         int biggestsumOfGlass = -100;
@@ -25,103 +25,98 @@ public class H_HourglassSum3 {
             sumOfGlass = 0;
             for (int sarake = 0; sarake < arr.length; sarake++, counter++) {
                 sumOfGlass = 0;
-                System.out.println("ruutu: " + (counter + 1));
+//                System.out.println("ruutu: " + (counter + 1));
 
                 for (i = rivi; i < 3 + rivi && i < arr.length; i++) {
                     for (j = sarake; j < 3 + sarake && j < arr.length; j++) {
-                        System.out.print(arr[i][j] + " ");
+//                        System.out.print(arr[i][j] + " ");
                         int num = arr[i][j];
                         myList.add(num);
                     }
-                    System.out.println(""); // Let this be here!!
+//                    System.out.println(""); // Let this be here!!
                 }
 
                 if (sarake == 3) {
 
-                    System.out.println("********************");
-                    System.out.println("array: " + myList);
+//                    System.out.println("********************");
+//                    System.out.println("array: " + myList);
 
                     for (Integer num : myList) {
                         if (num == 0) {
-                            System.out.print(" + " + num);
+//                            System.out.print(" + " + num);
                         } else {
-                            System.out.print("  " + num);
+//                            System.out.print("  " + num);
                         }
                     }
-
-                    System.out.println("\n*******************");
-                    System.out.println("");
+//
+//                    System.out.println("\n*******************");
+//                    System.out.println("");
 
                     for (Integer num : myList) {
                         sumOfGlass += num;
                     }
-                    System.out.println("ind(3) + ind(5): " + myList.get(3) + " + " + myList.get(5) + " = " + (myList.get(3) + myList.get(5)));
-                    System.out.println("SUMMA: " + sumOfGlass + " - " + ((myList.get(3) + myList.get(5))));
+//                    System.out.println("ind(3) + ind(5): " + myList.get(3) + " + " + myList.get(5) + " = " + (myList.get(3) + myList.get(5)));
+//                    System.out.println("SUMMA: " + sumOfGlass + " - " + ((myList.get(3) + myList.get(5))));
 
                     sumOfGlass = sumOfGlass - (myList.get(3) + myList.get(5));
-                    System.out.println("SUMMA: " + sumOfGlass);
-                    if (sumOfGlass > biggestsumOfGlass) {
-                        biggestsumOfGlass = sumOfGlass;
-                        sumOfGlass = 0;
-                    }
+//                    System.out.println("SUMMA: " + sumOfGlass);
+                    listOfSums.add(sumOfGlass);
+                    sumOfGlass = 0;
+   
                     myList.clear();
 
                     counter++;
-                    System.out.println("sarake == 3 -- break");
+//                    System.out.println("sarake == 3 -- break");
                     sumOfGlass = 0;
                     break;
 
                 }
 
-                System.out.println("-------------");
-                System.out.println("array: " + myList);
+//                System.out.println("-------------");
+//                System.out.println("array: " + myList);
                 for (Integer num : myList) {
                     if (num == 0) {
-                        System.out.print(" + " + num);
+//                        System.out.print(" + " + num);
                     } else {
-                        System.out.print("  " + num);
+//                        System.out.print("  " + num);
                     }
                 }
-                System.out.println("");
+//                System.out.println("");
 
                 for (Integer num : myList) {
                     sumOfGlass += num;
                 }
-                System.out.println("ind(3) + ind(5): " + myList.get(3) + " + " + myList.get(5) + " = " + (myList.get(3) + myList.get(5)));
-                System.out.println("SUMMA: " + sumOfGlass + " - " + ((myList.get(3) + myList.get(5))));
+//                System.out.println("ind(3) + ind(5): " + myList.get(3) + " + " + myList.get(5) + " = " + (myList.get(3) + myList.get(5)));
+//                System.out.println("SUMMA: " + sumOfGlass + " - " + ((myList.get(3) + myList.get(5))));
+                
                 sumOfGlass = sumOfGlass - (myList.get(3) + myList.get(5));
-                System.out.println("SUMMA: " + sumOfGlass);
+                
+//                System.out.println("SUMMA: " + sumOfGlass);
+                
                 listOfSums.add(sumOfGlass);
-                if (sumOfGlass > biggestsumOfGlass) {
-                    biggestsumOfGlass = sumOfGlass;
-                    sumOfGlass = 0;
-                }
                 sumOfGlass = 0;
                 myList.clear();
             }
-            System.out.println("-------------");
+//            System.out.println("-------------");
             myList.clear();
 
             if (rivi == 3) {
 
                 counter++;
-                System.out.println("rivi == 3 -- break");
+//                System.out.println("rivi == 3 -- break");
                 sumOfGlass = 0;
                 break;
             }
         }
 
-        biggestsumOfGlass = listOfSums.get(0);
-        System.out.println("\nsuurin: " + biggestsumOfGlass);
         Collections.sort(listOfSums);
-        
-        for (Integer num : listOfSums) {
-            System.out.print(" " + num);
-//            if (num > biggestsumOfGlass) {
-//                biggestsumOfGlass = num;
-//            }
-        }
-        System.out.println("\nsuurin: " + biggestsumOfGlass);
+//        System.out.println("Lista: ");
+//        for (Integer sumNumber : listOfSums) {
+//            System.out.print(" " + sumNumber);
+//        }
+        biggestsumOfGlass = listOfSums.get(listOfSums.size()-1);
+
+//        System.out.println("\nsuurin: " + biggestsumOfGlass);
 
         return biggestsumOfGlass;
     }
@@ -143,24 +138,6 @@ public class H_HourglassSum3 {
                 arr[i][j] = arrItem;
             }
         }
-//        Random r = new Random();
-//        int randint = Math.abs(r.nextInt()) % 11;
-//
-//        int[][] arr = {{1, 1, 1, 0, 0, 0}, {0, 1, 0, 0, 0, 0}, {1, 1, 1, 0, 0, 0},
-//        {0, 9, 2, -4, -4, 0}, {0, 0, 0, -2, 0, 0}, {0, 0, -1, -2, -4, 0}};
-//
-//        int[][] arr2 = {{-9, -9, -9, 1, 1, 1}, {0, -9, 0, 4, 3, 2}, {-9, -9, -9, 1, 2, 3},
-//        {0, 0, 8, 6, 6, 0}, {0, 0, 0, -2, 0, 0}, {0, 0, 1, 2, 4, 0}};
-
-//        int[][] arr = new int[6][6];
-//        for (int i = 0; i < arr.length; i++) {
-//            for (int j = 0; j < arr[i].length; j++) {
-//
-//                arr[i][j] = randint = Math.abs(r.nextInt()) % 11;;
-////                System.out.print(arr[i][j] + " ");
-//            }
-////            System.out.println("");
-//        }
         int result = hourglassSum(arr);
 
         bufferedWriter.write(String.valueOf(result));
