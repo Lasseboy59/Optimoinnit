@@ -1,6 +1,6 @@
 // https://stackoverflow.com/questions/28970799/how-to-create-a-array-with-n-random-integers
 
-package omatohjelmat;
+package hackertest;
 
 import java.util.ArrayList;
 import java.util.List;

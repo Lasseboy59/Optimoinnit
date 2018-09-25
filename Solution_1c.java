@@ -1,4 +1,4 @@
-package omatohjelmat;
+package hackertest;
 
 // https://stackoverflow.com/questions/692569/how-can-i-count-the-time-it-takes-a-function-to-complete-in-java
 import java.io.BufferedReader;
@@ -8,7 +8,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import static omatohjelmat.RandomNumberList.generateRandomArray;
 
 public class Solution_1c {
 
