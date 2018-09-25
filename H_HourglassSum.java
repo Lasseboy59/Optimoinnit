@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package hackertest;
 
 import java.io.*;
@@ -17,19 +13,23 @@ public class H_HourglassSum {
 
         System.out.println("");
         int i = 0, j = 0;
-        
-        for (int k = 0; k < arr.length; k++) {
-            for (int l = 0; l < arr.length; l++) {
-                
 
-                for (i = k; i < 3 + k && i < arr.length; i++) {
-                    for (j = k; j < 3 + k && j < arr.length; j++) {
+        for (int rivi = 0; rivi < arr.length; rivi++) {
+            for (int sarake = 0; sarake < arr.length; sarake++) {
+                System.out.println("sarake: " + (sarake + 1));
+
+                for (i = 0; i < 3 && i < arr.length; i++) {
+                    for (j = sarake; j < 3 + sarake && j < arr.length; j++) {
                         System.out.print(arr[i][j] + " ");
                     }
                     System.out.println("");
                 }
 
                 System.out.println("");
+
+                if (sarake == 3) {
+                    break;
+                }
             }
         }
 
@@ -46,7 +46,7 @@ public class H_HourglassSum {
 //
 //        for (int i = 0; i < 6; i++) {
 //            String[] arrRowItems = scanner.nextLine().split(" ");
-//            scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
+//            scanner.ssarakeip("(\r\n|[\n\r\u2028\u2029\u0085])?");
 //
 //            for (int j = 0; j < 6; j++) {
 //                int arrItem = Integer.parseInt(arrRowItems[j]);
