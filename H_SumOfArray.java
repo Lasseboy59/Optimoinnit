@@ -1,4 +1,4 @@
-package omatohjelmat;
+package hackertest;
 
 import java.io.*;
 import java.math.*;

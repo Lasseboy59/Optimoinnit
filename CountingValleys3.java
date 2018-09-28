@@ -1,4 +1,4 @@
-package Hacker;
+package hackertest;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;

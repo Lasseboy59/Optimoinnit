@@ -1,4 +1,4 @@
-package omatohjelmat;
+package hackertest;
 
 // https://stackoverflow.com/questions/692569/how-can-i-count-the-time-it-takes-a-function-to-complete-in-java
 // http://www.techiedelight.com/split-list-two-sublists-java/

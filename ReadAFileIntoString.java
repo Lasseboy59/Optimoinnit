@@ -1,4 +1,4 @@
-package omatohjelmat;
+package hackertest;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;

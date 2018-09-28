@@ -1,4 +1,4 @@
-package omatohjelmat;
+package hackertest;
 
 // https://www.quora.com/How-do-I-store-an-arraylist-to-a-text-file-in-Java
 import java.io.BufferedReader;
@@ -11,30 +11,37 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class KirjoitaListaTiedostoonJaLue {
+public class WriteArrayIntoFileAndReadArray_notReadingYet {
 
-    static List<Integer> generateRandomArray(int n) {
-        System.out.println("creating a random list with size of: " + n / (1000000));
-        ArrayList<Integer> list = new ArrayList<Integer>(n);
+    static int[] generateRandomArray(int n) {
+        System.out.println("creating a random list with size of: " + (10));
+//        ArrayList<Integer> list = new ArrayList<Integer>(n);
+        int[] arr = new int[n];
         Random random = new Random();
 
         for (int i = 0; i < n; i++) {
             int number = random.nextInt(100000);
-            list.add(number);
+            arr[i] = number;
         }
 
-        return list;
+        for (int i = 0; i < arr.length; i++) {
+            System.out.println(arr[i]);
+
+        }
+        return arr;
     }
 
     private static void writeToFile() {
-        final String FNAME = "c:\\temp\\text_in.txt";
+        final String FNAME = "c:\\temp\\swap_array_in.txt";
         List<Integer> arr = new ArrayList<>();
-//                                 123456789
-        arr = generateRandomArray(1000);
+        int[] arr2 = new int[100000];
+//                                
+//        arr = generateRandomArray(100000);
+        arr2 = generateRandomArray(10);
 
         try (BufferedWriter bw
                 = new BufferedWriter(new FileWriter(FNAME))) {
-            for (Integer line : arr) {
+            for (Integer line : arr2) {
                 bw.write(line + "\n");
             }
 
@@ -47,7 +54,7 @@ public class KirjoitaListaTiedostoonJaLue {
 
     private static void readFile() throws FileNotFoundException, IOException {
         // Create a BufferedReader from a FileReader.
-        BufferedReader reader = new BufferedReader(new FileReader("C:\\temp\\text_in_small.txt"));
+        BufferedReader reader = new BufferedReader(new FileReader("C:\\temp\\swap_array_in.txt"));
         ArrayList<Integer> list = new ArrayList<Integer>();
 
         // Loop over lines in the file and print them.
@@ -67,22 +74,18 @@ public class KirjoitaListaTiedostoonJaLue {
 
         System.out.println("size: " + list.size());
         System.out.println("----");
-        if (list.contains(81716)) {
-            System.out.println("Löytyi!");
-        } else {
-            System.out.println("Ei löytynyt");
-        }
-        // Close the BufferedReader.
+
         reader.close();
     }
 
     public static void main(String[] args) throws FileNotFoundException, IOException {
 
         writeToFile();
-        readFile();
+//        readFile();
         long timeLapseBegin = System.nanoTime();
 //                           123456789
-        generateRandomArray(10000000);
+//        generateRandomArray(10000000);
+        generateRandomArray(10);
 
         timeLapseBegin = System.nanoTime() - timeLapseBegin;
         System.out.println("secs: " + (double) timeLapseBegin / 1000000000);

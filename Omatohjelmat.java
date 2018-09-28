@@ -1,5 +1,5 @@
 //https://codereview.stackexchange.com/questions/121489/using-scanner-nextint-whilst-ignoring-rest-of-line
-package omatohjelmat;
+package hackertest;
 
 import java.util.Scanner;
 import static jdk.nashorn.internal.objects.NativeObject.keys;

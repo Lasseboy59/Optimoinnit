@@ -1,4 +1,4 @@
-package omatohjelmat;
+package hackertest;
 
 public class kickerNumbers {
 
