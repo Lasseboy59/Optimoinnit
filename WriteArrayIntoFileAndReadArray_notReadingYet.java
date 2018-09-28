@@ -60,6 +60,7 @@ public class WriteArrayIntoFileAndReadArray_notReadingYet {
         // Loop over lines in the file and print them.
         while (true) {
             String line = reader.readLine();
+            System.out.println(line);
             if (line == null) {
                 break;
             }
@@ -80,16 +81,13 @@ public class WriteArrayIntoFileAndReadArray_notReadingYet {
 
     public static void main(String[] args) throws FileNotFoundException, IOException {
 
-        writeToFile();
-//        readFile();
         long timeLapseBegin = System.nanoTime();
-//                           123456789
-//        generateRandomArray(10000000);
-        generateRandomArray(10);
+        writeToFile();
 
         timeLapseBegin = System.nanoTime() - timeLapseBegin;
         System.out.println("secs: " + (double) timeLapseBegin / 1000000000);
         System.out.println("-------- LUKU -------");
+        readFile();
 
     }
 }
